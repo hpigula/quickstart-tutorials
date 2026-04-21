@@ -207,7 +207,7 @@ services:
       jenkins_controller:
         condition: service_started
     ports:
-      - "3000:3000"
+      - "3000:3030"
     healthcheck:
       test: ["CMD-SHELL", "[ -f /home/jenkins/.ssh/authorized_keys ] || exit 1"]
       # Checks if the authorized_keys file exists in the /home/jenkins/.ssh path
@@ -229,7 +229,7 @@ services:
       jenkins_controller:
         condition: service_started
     ports:
-      - "3000:3000"
+      - "3000:3030"
     healthcheck:
       test: ["CMD-SHELL", "[ -f /home/jenkins/.ssh/authorized_keys ] || exit 1"]
       # Checks if the authorized_keys file exists in the /home/jenkins/.ssh path
@@ -242,7 +242,7 @@ services:
     image: ${IMAGE_PREFIX}/${GHCR_USERNAME}/quickstart-tutorials/jenkinsci-tutorials:simple_controller_${BRANCH_SUFFIX}
     restart: on-failure
     ports:
-      - "8080:8080"
+      - "8080:9191"
     profiles:
       - multi
     networks:
@@ -272,8 +272,8 @@ services:
       multi_jenkins_controller:
         condition: service_started
     ports:
-      - "3000:3000"
-      - "5000:5000"
+      - "3000:3030"
+      - "5000:5050"
     healthcheck:
       test: ["CMD-SHELL", "[ -f /home/jenkins/.ssh/authorized_keys ] || exit 1"]
       # Checks if the authorized_keys file exists in the /home/jenkins/.ssh path
@@ -295,7 +295,7 @@ services:
       jenkins_controller:
         condition: service_started
     ports:
-      - "3000:3000"
+      - "3000:3030"
     healthcheck:
       test: ["CMD-SHELL", "[ -f /home/jenkins/.ssh/authorized_keys ] || exit 1"]
       # Checks if the authorized_keys file exists in the /home/jenkins/.ssh path
@@ -317,7 +317,7 @@ services:
       jenkins_controller:
         condition: service_started
     ports:
-      - "3000:3000"
+      - "3000:3030"
     healthcheck:
       test: ["CMD-SHELL", "[ -f /home/jenkins/.ssh/authorized_keys ] || exit 1"]
       # Checks if the authorized_keys file exists in the /home/jenkins/.ssh path

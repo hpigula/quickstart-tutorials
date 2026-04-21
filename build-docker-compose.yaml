@@ -48,7 +48,7 @@ services:
     environment:
       - CASC_RELOAD_TOKEN=thisisnotsecure
     ports:
-      - "8080:8080"
+      - "8080:9191"
     volumes:
       - jenkins_home:/var/jenkins_home # Mounts the jenkins_home volume to the /var/jenkins_home path inside the container
       - agent-ssh-dir:/ssh-dir # Mounts the agent-ssh-dir volume to the /app path inside the container
@@ -127,7 +127,7 @@ services:
       jenkins_controller:
         condition: service_started
     ports:
-      - "3000:3000"
+      - "3000:3030"
     healthcheck:
       test: ["CMD-SHELL", "[ -f /home/jenkins/.ssh/authorized_keys ] || exit 1"]
       # Checks if the authorized_keys file exists in the /home/jenkins/.ssh path
@@ -147,8 +147,8 @@ services:
       jenkins_controller:
         condition: service_started
     ports:
-      - "3000:3000"
-      - "5000:5000"
+      - "3000:3030"
+      - "5000:5050"
     healthcheck:
       test: ["CMD-SHELL", "[ -f /home/jenkins/.ssh/authorized_keys ] || exit 1"]
       # Checks if the authorized_keys file exists in the /home/jenkins/.ssh path
@@ -168,8 +168,8 @@ services:
       jenkins_controller:
         condition: service_started
     ports:
-      - "3000:3000"
-      - "5000:5000"
+      - "3000:3030"
+      - "5000:5050"
     healthcheck:
       test: ["CMD-SHELL", "[ -f /home/jenkins/.ssh/authorized_keys ] || exit 1"]
       # Checks if the authorized_keys file exists in the /home/jenkins/.ssh path
@@ -189,7 +189,7 @@ services:
       jenkins_controller:
         condition: service_started
     ports:
-      - "3000:3000"
+      - "3000:3030"
     healthcheck:
       test: ["CMD-SHELL", "[ -f /home/jenkins/.ssh/authorized_keys ] || exit 1"]
       # Checks if the authorized_keys file exists in the /home/jenkins/.ssh path
@@ -226,7 +226,7 @@ services:
       jenkins_controller:
         condition: service_started
     ports:
-      - "5000:5000"
+      - "5000:5050"
     healthcheck:
       test: ["CMD-SHELL", "[ -f /home/jenkins/.ssh/authorized_keys ] || exit 1"]
       interval: 5s
